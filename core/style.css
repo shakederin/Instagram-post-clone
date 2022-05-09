@@ -1,29 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 body{
     overflow-y: hidden;
     margin: 0;
-    background-color: antiquewhite;
+    background-color: rgb(230, 230, 230);
     display: flex;
+    font-family: 'Oswald', sans-serif;
 }
 
-.mainConteiner{
-    margin: auto;
-    
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    height: 45em;
-    width: 85em;
-    border: 1em;
-}
-.ImgConteiner{
-    display:flex;
-    height: 45em;
-    width: 50em;
-}
+    .mainConteiner{
+        margin: auto;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        height: 45em;
+        width: 85em;
+        border: 1em;
+    }
+        .ImgConteiner{
+            display:flex;
+            height: 45em;
+            width: 50em;
+        }
 
-#mainImg{
-    position: relative;
-    height: 45em;
-    width: 50em;
-    object-fit: cover;
-}
+        #mainImg{
+            position: relative;
+            height: 45em;
+            width: 50em;
+            object-fit: cover;
+        }
+
+    .commentsConteiner{
+        height: 45em;
+        width: 35em;
+    }
+
+        .commentsConteinerHeader{
+            display: flex;
+            flex-direction: row;
+        }
+
+            .profilePicture{
+                display: block;
+                margin-block-start: 0.8em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                height: 2em;
+                width: 2em;
+                border-radius: 50%;
+                margin-left: 0.5em;
+                border: 0.15em solid;
+                border-color: coral;
+            }
+
+            #commentsHeader{
+                display: block;
+                margin-block-start: 0.8em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                margin-left: 0.5em;
+            }
+
+            #threeDots{
+                display: block;
+                margin-block-start: 0.8em;
+                margin-block-end: 1em;
+                margin-inline-start: 18em;
+                margin-inline-end: 0px;
+                height: 2em;
+                width: 2em;
+            }
