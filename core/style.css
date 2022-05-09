@@ -32,6 +32,7 @@ body{
         }
 
     .commentsConteiner{
+        position: relative;
         height: 45em;
         width: 35em;
     }
@@ -83,4 +84,42 @@ body{
             }
         .hr{
             margin: 0;
+        }
+        #commentsBlock{
+            display: flex;
+            flex-direction: row;
+        }
+            #commentsList{
+                    list-style-type: none;
+            }
+            #FirstComment{
+                display: block;
+                margin-block-start: 0.8em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                margin-left: 0.5em;
+                font-size: 1.17em;
+            }
+        #replayArea{
+            display: flex;
+            flex-direction: row;
+            position:absolute;
+            bottom: 0;
+            height: 10em;
+            width: 35em;
+        }
+        #inputForm{
+            display: block;
+            margin-block-start: 4em;
+            margin-block-end: 1em;
+            margin-left: 3em;
+            font-size: 1.17em;
+        }
+        #commentInput{
+            width: 30em;
+            height: 5em;
+        }
+        #postComment{
+            margin-left: 2.5em;
         }
