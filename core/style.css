@@ -1,0 +1,29 @@
+body{
+    overflow-y: hidden;
+    margin: 0;
+    background-color: antiquewhite;
+    display: flex;
+}
+
+.mainConteiner{
+    margin: auto;
+    
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 45em;
+    width: 85em;
+    border: 1em;
+}
+.ImgConteiner{
+    display:flex;
+    height: 45em;
+    width: 50em;
+}
+
+#mainImg{
+    position: relative;
+    height: 45em;
+    width: 50em;
+    object-fit: cover;
+}
