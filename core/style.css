@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
 body{
     overflow-y: hidden;
     margin: 0;
@@ -9,12 +9,14 @@ body{
 
     .mainConteiner{
         margin: auto;
+        margin-top: 5em;
         background-color: white;
         display: flex;
         flex-direction: row;
         height: 45em;
         width: 85em;
         border: 1em;
+        border-radius: 0.1em;
     }
         .ImgConteiner{
             display:flex;
@@ -47,10 +49,17 @@ body{
                 margin-inline-end: 0px;
                 height: 2em;
                 width: 2em;
-                border-radius: 50%;
                 margin-left: 0.5em;
-                border: 0.15em solid;
-                border-color: coral;
+
+                border-radius: 50%;
+                border: double 1em transparent;
+                background-image: linear-gradient(white, white), 
+                    linear-gradient(to right top, rgb(255, 175, 70), rgb(207, 83, 176));
+                background-origin: border-box;
+                background-clip: content-box, border-box;
+                border-style: solid;
+                border-width: 0.2em;
+                border-color: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66)) 1; */
             }
 
             #commentsHeader{
@@ -60,6 +69,7 @@ body{
                 margin-inline-start: 0px;
                 margin-inline-end: 0px;
                 margin-left: 0.5em;
+                font-size: 1.17em;
             }
 
             #threeDots{
@@ -71,3 +81,6 @@ body{
                 height: 2em;
                 width: 2em;
             }
+        .hr{
+            margin: 0;
+        }
