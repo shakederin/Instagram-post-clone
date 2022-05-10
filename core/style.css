@@ -40,6 +40,7 @@ body {
 .commentsConteinerHeader {
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .profilePicture {
@@ -75,15 +76,11 @@ body {
 }
 
 #threeDots {
-    position:absolute;
+    position: absolute;
     right: 0.5em;
     top: 1em;
     height: 2em;
     width: 2em;
-}
-
-.hr {
-    margin: 0;
 }
 
 #commentsBlock {
@@ -157,7 +154,7 @@ body {
     height: 10em;
     width: 35em;
     padding-top: 1em;
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 1em;
 }
 
@@ -198,7 +195,7 @@ body {
     bottom: 0;
     font-size: 1.17em;
     z-index: 1;
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     ;
 }
 
