@@ -75,11 +75,9 @@ body {
 }
 
 #threeDots {
-    display: block;
-    margin-block-start: 1.2em;
-    margin-block-end: 1em;
-    margin-inline-start: 18em;
-    margin-inline-end: 0px;
+    position:absolute;
+    right: 0.5em;
+    top: 1em;
     height: 2em;
     width: 2em;
 }
