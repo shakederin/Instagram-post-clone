@@ -111,6 +111,32 @@ body{
             padding-top: 1em;
             border-top: 1px solid rgba(0, 0, 0, 0.5);;
         }
+        #allLikes{
+            display: flex;
+            flex-direction: row;
+        }
+        .likeFP{
+            position: absolute;
+            top: 2.3em;
+            width: 1.5em;
+            height: 1.5em;
+            border: 0em;
+        }
+        #hoursAgo{
+            position: absolute;
+            top: 5.8em;
+            left: 1.1em;
+            font-size: 0.8em; 
+            color: rgb(0, 0, 0, 0.5) ;      
+        }
+        #secondFP{
+            left: 1.1em;
+        }
+        #likedBy{
+            position: absolute;
+            top: 3em;
+            left: 3.5em;
+        }
         #inputForm{
             position:absolute;
             bottom: 0;
@@ -131,6 +157,7 @@ body{
         #saveSVG{
            position:absolute;
            right: 1em;
+           width: 1.3em;
         }
         .svgImg{
             width: 1.5em;
