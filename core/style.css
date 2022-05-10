@@ -100,6 +100,10 @@ body{
                 overflow:scroll;
                 overflow-x: hidden;
             }
+            #commentsList::-webkit-scrollbar {
+                display: none; 
+            }
+
             #FirstComment{
                 display: flex;
                 flex-direction: row;
