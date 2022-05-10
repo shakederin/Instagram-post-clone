@@ -108,20 +108,21 @@ body{
             bottom: 0;
             height: 10em;
             width: 35em;
+            padding-top: 1em;
+            border-top: 1px solid rgba(0, 0, 0, 0.5);;
         }
         #inputForm{
-            display: block;
-            margin-block-start: 4em;
-            margin-block-end: 1em;
-            margin-left: 3em;
+            position:absolute;
+            bottom: 0;
             font-size: 1.17em;
+            z-index: 1;
+            border-top: 1px solid rgba(0, 0, 0, 0.5);;
         }
         #commentInput{
-            width: 30em;
-            height: 5em;
-        }
-        #postComment{
-            margin-left: 2.5em;
+            all : unset;
+            margin-left: 4em;
+            width: 26em;
+            height: 3.5em;
         }
         #icons{
             display: flex;
@@ -129,10 +130,29 @@ body{
          }
         #saveSVG{
            position:absolute;
-           right: 2em;
+           right: 1em;
         }
         .svgImg{
             width: 1.5em;
             margin: 0 0.51em;
+            cursor: pointer;
         }
+        #smileSVG{
+            position:absolute;
+            margin: 0;
+            left: 1em; 
+            bottom: 1em;
+        }
+        #postComment{
+            all : unset;
+            position:absolute;
+            padding: 0;
+            height: 1.5em;
+            margin: 0;
+            right: 1em;
+            bottom: 1.2em;
+            color: rgb(188, 219, 235);
+            cursor: pointer;
+        }
+        
       
