@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
 body{
     overflow-y: hidden;
     margin: 0;
     background-color: rgb(230, 230, 230);
     display: flex;
-    font-family: 'Oswald', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
     .mainConteiner{
@@ -65,17 +64,17 @@ body{
 
             #commentsHeader{
                 display: block;
-                margin-block-start: 0.8em;
+                margin-block-start: 1.2em;
                 margin-block-end: 1em;
                 margin-inline-start: 0px;
                 margin-inline-end: 0px;
                 margin-left: 0.5em;
-                font-size: 1.17em;
+                font-size: 1em;
             }
 
             #threeDots{
                 display: block;
-                margin-block-start: 0.8em;
+                margin-block-start: 1.2em;
                 margin-block-end: 1em;
                 margin-inline-start: 18em;
                 margin-inline-end: 0px;
@@ -88,19 +87,56 @@ body{
         #commentsBlock{
             display: flex;
             flex-direction: row;
+            margin: 0em;
+            height: 29.5em;
         }
             #commentsList{
-                    list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 0em;
+                margin: 1em 0em 0em 1em;
+                list-style-type: none;
+                overflow:scroll;
+                overflow-x: hidden;
             }
             #FirstComment{
-                display: block;
-                margin-block-start: 0.8em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-                margin-left: 0.5em;
-                font-size: 1.17em;
+                display: flex;
+                flex-direction: row;
             }
+            .comment{
+                display: flex;
+                position: relative;
+                flex-direction: row;
+                height: 4em;
+            }
+            .commentHeader{
+                position:absolute;
+                top: 1em;
+                left: 4em;
+                font-weight: 400;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+            }
+            .commentInfo{
+                display: flex;
+                flex-direction: row;
+                color: rgb(0, 0, 0, 0.5);
+                position:absolute;
+                left: 4.35em;
+                bottom: 0em;
+                font-size: 0.9em;
+            }
+
+            .infoSubtitle{
+                margin-right: 1em;
+            }
+            .commentHeart{
+                position:absolute;
+                right:2em;
+                top: 3em;
+                font-size: 0.55em;
+            }
+
         #replayArea{
             display: flex;
             flex-direction: column;
@@ -109,7 +145,8 @@ body{
             height: 10em;
             width: 35em;
             padding-top: 1em;
-            border-top: 1px solid rgba(0, 0, 0, 0.5);;
+            border-top: 1px solid rgba(0, 0, 0, 0.5);
+            padding-top: 1em;
         }
         #allLikes{
             display: flex;
