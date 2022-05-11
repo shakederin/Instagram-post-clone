@@ -2,11 +2,10 @@
   "name": "instagram-post-clone",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "parcel" : "npx parcel public/index.html"
+    "parcel" : "npx parcel build src/index.ts  "
   },
   "repository": {
     "type": "git",
