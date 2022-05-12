@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./style.css">
-        <link rel="icon" href="assets/icons8-instagram.svg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="assets/icons8-instagram.svg">
     <title>Instagram Post Clone</title>
 </head>
 
@@ -14,42 +14,82 @@
     <div class="mainConteiner">
         <div class="ImgConteiner">
             <img src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-            alt="airplane on ground surrounded with trees photo" id="mainImg">
+                alt="airplane on ground surrounded with trees photo" id="mainImg">
         </div>
         <div class="commentsConteiner">
             <div class="commentsConteinerHeader">
-                <img src="https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg" alt="profile Picture"
-                class="profilePicture">
-                <div id="commentsHeader"><b>tonytoscani &#8226; Following</b></div>
+                <div class="ppHeaderBlock">
+                    <img src="https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg"
+                        alt="profile Picture" class="profilePicture">
+                    <div id="commentsHeader"><b>tonytoscani &#8226; Following</b></div>
+                </div>
                 <img src="https://media.istockphoto.com/vectors/typing-text-chat-isolated-vector-icon-modern-geometric-illustration-vector-id1186972006?k=20&m=1186972006&s=612x612&w=0&h=vFGrVHgdRGWyUlDcW5KPfAXy5sfcjLg5Cl231ZF78hM="
-                alt="3Dots" id="threeDots">
+                    alt="3Dots" id="threeDots">
             </div>
             <div id="commentsBlock">
                 <ul id="commentsList">
                     <li class="comment">
                         <div id="FirstComment">
                             <img src="https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg"
-                            alt="profile Picture" class="profilePicture">
-                            <div class="commentHeader"><b>tonytoscani</b> "The Tuthor" Oil on Linen 36" x 28"</div>
+                                alt="profile Picture" class="profilePicture">
+                            <div class="commentHeader">
+                                <div>
+                                    <b>tonytoscani</b>
+                                    <span>"The Tuthor" Oil on Linen 36" x 28"</span>
+                                </div>
+                                <div class="commentInfo">10 h</div>
+                            </div>
                         </div>
-                        <div class="commentInfo">10 h</div>
-                    </li> 
-                        <!-- <img class="svgImg commentHeart" src="assets/heart-3511.svg" alt="heart">
-                        <img class="svgImg commentHeart" src="assets/redHeart.svg" alt="heart"> -->
+                    </li>
+                    <li class="comment">
+                        <div class="comonComment">
+                            <img class="profilePicture"
+                                src="https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg"
+                                alt="profile Picture">
+                            <div class="commentHeader">
+                                <div>
+                                    <b>tonytoscani</b>
+                                    <span> asdf</span>
+                                </div>
+                                <div class="commentInfo">
+                                    <div class="infoSubtitle">10 h</div>
+                                    <b class="infoSubtitle">like</b>
+                                    <b class="infoSubtitle">Reply</b>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="commentHeart" src="../public/assets/heart-3511.svg" alt="heart"
+                            style="font-size: 0.55em;">
+                    </li>
                 </ul>
             </div>
             <div id="replayArea">
                 <div id="icons">
-                    <svg id="likeHeart"  class="svgImg" aria-label="Like" class="_8-yf5" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0121.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 014.708-5.218 4.21 4.21 0 013.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 013.679-1.938m0-2a6.04 6.04 0 00-4.797 2.127 6.052 6.052 0 00-4.787-2.127A6.985 6.985 0 00.5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 003.518 3.018 2 2 0 002.174 0 45.263 45.263 0 003.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 00-6.708-7.218z"></path></svg>
-                    <svg class="svgImg" aria-label="Comment" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 10-3.59 3.615L22 22z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
-                    <svg class="svgImg" aria-label="Share Post" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+                    <svg id="likeHeart" class="svgImg" aria-label="Like" class="_8-yf5" color="#262626" fill="#262626"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <path
+                            d="M16.792 3.904A4.989 4.989 0 0121.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 014.708-5.218 4.21 4.21 0 013.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 013.679-1.938m0-2a6.04 6.04 0 00-4.797 2.127 6.052 6.052 0 00-4.787-2.127A6.985 6.985 0 00.5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 003.518 3.018 2 2 0 002.174 0 45.263 45.263 0 003.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 00-6.708-7.218z">
+                        </path>
+                    </svg>
+                    <svg class="svgImg" aria-label="Comment" class="_8-yf5 " color="#262626" fill="#262626" height="24"
+                        role="img" viewBox="0 0 24 24" width="24">
+                        <path d="M20.656 17.008a9.993 9.993 0 10-3.59 3.615L22 22z" fill="none" stroke="currentColor"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <svg class="svgImg" aria-label="Share Post" class="_8-yf5 " color="#262626" fill="#262626"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                            x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
                     <img id="saveSVG" class="svgImg" src="./assets/Save-Icon-093bnc3.svg" alt="save">
                 </div>
                 <div id="allLikes">
                     <img src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=850/uploads/users/80/posts/26761/image/27-MalePortraits.jpg"
-                    alt="profile Picture" class="profilePicture likeFP" id="secondFP">
+                        alt="profile Picture" class="profilePicture likeFP" id="secondFP">
                     <img src="https://cdn.pixabay.com/photo/2021/06/04/10/28/portrait-6309448_960_720.jpg"
-                    alt="profile Picture" class="profilePicture likeFP">
+                        alt="profile Picture" class="profilePicture likeFP">
                     <div id="likedBy">Liked by <b>yonni</b> and <b>1,924 others</b></div>
                 </div>
                 <div id="hoursAgo">18 HOURS AGO</div>
