@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "parcel" : "npx parcel build src/index.ts  "
+    "parcel": "npx parcel build src/index.ts  "
   },
   "repository": {
     "type": "git",
