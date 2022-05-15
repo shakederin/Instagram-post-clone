@@ -236,3 +236,7 @@ body {
     color: rgb(165, 212, 235);
     cursor: pointer;
 }
+
+#postComment:hover {
+    color: #3FA7DB;
+}
