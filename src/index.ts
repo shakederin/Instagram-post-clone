@@ -1,15 +1,6 @@
 const inputElement = document.getElementById("commentInput");
 const formElement = document.getElementById("inputForm");
 const ulElement = document.getElementById("commentsList");
-const postElement = document.getElementById("postComment");
-
-//post comment button
-postElement?.addEventListener("mouseenter", () => {
-    postElement.style.color = "#3FA7DB";
-})
-postElement?.addEventListener("mouseleave", () => {
-    postElement.style.color = "#A5D4EB";
-})
 
 //submit form
 if (formElement !== null) {
