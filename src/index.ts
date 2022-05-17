@@ -1,7 +1,7 @@
 const inputElement = document.getElementById("commentInput");
 const formElement = document.getElementById("inputForm");
 const ulElement = document.getElementById("commentsList");
-
+const ppURL = "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
 //submit form
 if (formElement !== null) {
     formElement?.addEventListener("submit", (event) => {
@@ -12,44 +12,30 @@ if (formElement !== null) {
                 return;
             }
             // li father
-            const newLiElement = document.createElement("li");
+            const newLiElement = createNewElement("li", "comment", "");
             // profile pic
-            const newImgElement = document.createElement("img");
-            newImgElement.className = "profilePicture";
-            newImgElement.src = "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
+            const newImgElement = createNewElement("img", "profilePicture", "") as HTMLImageElement;
+            newImgElement.src = ppURL;
             newImgElement.alt = "profile Picture";
             // comment 
-            const newCommentElement = document.createElement("div");
-            newCommentElement.className = "comonComment";
+            const newCommentElement = createNewElement("div", "comonComment", "");
             //comment Header
-            const newCommentHeaderElement = document.createElement("div");
+            const newCommentHeaderElement = createNewElement("div", "commentHeader", "");
             const newCommentHeaderAndContentElement = document.createElement("div");
-            const newCommentBodyElement = document.createElement("span");
-            newCommentHeaderElement.className = "commentHeader";
-            newCommentBodyElement.innerText = `${newMsg}`;
-            const newCommentHeaderBoldElement = document.createElement("b");
-            newCommentHeaderBoldElement.innerText = "tonytoscani ";
+            const newCommentBodyElement = createNewElement("span", "", `${newMsg}`);
+            const newCommentHeaderBoldElement = createNewElement("b", "", "tonytoscani ");
             newCommentHeaderAndContentElement.append(newCommentHeaderBoldElement, newCommentBodyElement);
             newCommentHeaderElement.append(newCommentHeaderAndContentElement);
             // extra info
-            const newCommentInfoElement = document.createElement("div");
-            newCommentInfoElement.className = "commentInfo";
-            const newhourAgoElement = document.createElement("div");
-            newhourAgoElement.className = "infoSubtitle";
-            newhourAgoElement.innerText = "10 h";
-            const newlikesInfoElement = document.createElement("b");
-            newlikesInfoElement.className = "infoSubtitle";
-            newlikesInfoElement.innerText = "like";
-            const newReplayInfoElement = document.createElement("b")
-            newReplayInfoElement.className = "infoSubtitle";
-            newReplayInfoElement.innerText = "Reply";
+            const newCommentInfoElement = createNewElement("div", "commentInfo", "");
+            const newhourAgoElement = createNewElement("div", "infoSubtitle", "10 h");
+            const newlikesInfoElement = createNewElement("b", "infoSubtitle", "like");;
+            const newReplayInfoElement = createNewElement("b", "infoSubtitle", "Reply");;
             newCommentInfoElement.append(newhourAgoElement, newlikesInfoElement, newReplayInfoElement);
             newCommentHeaderElement.append(newCommentInfoElement)
             // heart in the end
-            const newCommentSvgElement = document.createElement("img");
-            newCommentSvgElement.className = "commentHeart";
+            const newCommentSvgElement = createNewElement("img", "commentHeart", "") as HTMLImageElement;
             newCommentSvgElement.src = "../public/assets/heart-3511.svg"
-            newCommentSvgElement.style.fontSize = "0.55em"
             newCommentSvgElement.alt = "heart";
             newCommentSvgElement.addEventListener("click", () => {
                 if (newlikesInfoElement.innerText === "like") {
@@ -61,7 +47,6 @@ if (formElement !== null) {
                 }
             })
             // li father
-            newLiElement.className = "comment";
             newCommentElement.append(newImgElement, newCommentHeaderElement);
             newLiElement.append(newCommentElement, newCommentSvgElement);
             if (ulElement === null) {
@@ -73,5 +58,9 @@ if (formElement !== null) {
     })
 }
 
-
-
+const createNewElement = (tag: string, className: string, innerText: string) => {
+    const newElement = document.createElement(tag);
+    newElement.className = className;
+    newElement.innerText = innerText;
+    return newElement;
+}
