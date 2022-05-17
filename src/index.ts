@@ -26,9 +26,9 @@ if (formElement !== null) {
             const newCommentHeaderAndContentElement = document.createElement("div");
             const newCommentBodyElement = document.createElement("span");
             newCommentHeaderElement.className = "commentHeader";
-            newCommentBodyElement.innerText = ` ${newMsg}`;
+            newCommentBodyElement.innerText = `${newMsg}`;
             const newCommentHeaderBoldElement = document.createElement("b");
-            newCommentHeaderBoldElement.innerText = "tonytoscani";
+            newCommentHeaderBoldElement.innerText = "tonytoscani ";
             newCommentHeaderAndContentElement.append(newCommentHeaderBoldElement, newCommentBodyElement);
             newCommentHeaderElement.append(newCommentHeaderAndContentElement);
             // extra info
@@ -49,7 +49,6 @@ if (formElement !== null) {
             const newCommentSvgElement = document.createElement("img");
             newCommentSvgElement.className = "commentHeart";
             newCommentSvgElement.src = "../public/assets/heart-3511.svg"
-
             newCommentSvgElement.style.fontSize = "0.55em"
             newCommentSvgElement.alt = "heart";
             newCommentSvgElement.addEventListener("click", () => {
