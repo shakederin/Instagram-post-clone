@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.mainConteiner {
+.mainContainer {
     margin: auto;
     margin-top: 5em;
     background-color: white;
@@ -13,7 +13,7 @@ body {
     width: 85em;
 }
 
-.ImgConteiner {}
+.ImgContainer {}
 
 #mainImg {
     height: 100%;
@@ -21,11 +21,11 @@ body {
     background-size: cover;
 }
 
-.commentsConteiner {
+.commentsContainer {
     width: 35em;
 }
 
-.commentsConteinerHeader {
+.commentsContainerHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,14 +125,11 @@ body {
 }
 
 .commentHeart {
+    font-size: 0.55em;
     margin-right: 1.7em;
     width: 1.5em;
     cursor: pointer;
 }
-
-
-/**************************************************/
-
 
 #replayArea {
     height: 11em;
@@ -140,9 +137,7 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/*************************************************/
-
-.likeConteiner {
+.likeContainer {
     height: 70%;
 }
 

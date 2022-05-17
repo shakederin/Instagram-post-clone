@@ -1,78 +1,74 @@
 const inputElement = document.getElementById("commentInput");
 const formElement = document.getElementById("inputForm");
 const ulElement = document.getElementById("commentsList");
-
 //submit form
-if (formElement !== null) {
+if (formElement) {
     formElement?.addEventListener("submit", (event) => {
         event.preventDefault();
         if (inputElement !== null) {
+            const ppURL = "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
             const newMsg = (inputElement as HTMLInputElement).value;
             if (newMsg === "") {
                 return;
             }
-            // li father
-            const newLiElement = document.createElement("li");
-            // profile pic
-            const newImgElement = document.createElement("img");
-            newImgElement.className = "profilePicture";
-            newImgElement.src = "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
-            newImgElement.alt = "profile Picture";
-            // comment 
-            const newCommentElement = document.createElement("div");
-            newCommentElement.className = "comonComment";
-            //comment Header
-            const newCommentHeaderElement = document.createElement("div");
-            const newCommentHeaderAndContentElement = document.createElement("div");
-            const newCommentBodyElement = document.createElement("span");
-            newCommentHeaderElement.className = "commentHeader";
-            newCommentBodyElement.innerText = ` ${newMsg}`;
-            const newCommentHeaderBoldElement = document.createElement("b");
-            newCommentHeaderBoldElement.innerText = "tonytoscani";
-            newCommentHeaderAndContentElement.append(newCommentHeaderBoldElement, newCommentBodyElement);
-            newCommentHeaderElement.append(newCommentHeaderAndContentElement);
-            // extra info
-            const newCommentInfoElement = document.createElement("div");
-            newCommentInfoElement.className = "commentInfo";
-            const newhourAgoElement = document.createElement("div");
-            newhourAgoElement.className = "infoSubtitle";
-            newhourAgoElement.innerText = "10 h";
-            const newlikesInfoElement = document.createElement("b");
-            newlikesInfoElement.className = "infoSubtitle";
-            newlikesInfoElement.innerText = "like";
-            const newReplayInfoElement = document.createElement("b")
-            newReplayInfoElement.className = "infoSubtitle";
-            newReplayInfoElement.innerText = "Reply";
-            newCommentInfoElement.append(newhourAgoElement, newlikesInfoElement, newReplayInfoElement);
-            newCommentHeaderElement.append(newCommentInfoElement)
-            // heart in the end
-            const newCommentSvgElement = document.createElement("img");
-            newCommentSvgElement.className = "commentHeart";
-            newCommentSvgElement.src = "../public/assets/heart-3511.svg"
-
-            newCommentSvgElement.style.fontSize = "0.55em"
-            newCommentSvgElement.alt = "heart";
-            newCommentSvgElement.addEventListener("click", () => {
-                if (newlikesInfoElement.innerText === "like") {
-                    newlikesInfoElement.innerText = "1 like"
-                    newCommentSvgElement.src = "../public/assets/redHeart.svg"
-                } else {
-                    newlikesInfoElement.innerText = "like"
-                    newCommentSvgElement.src = "../public/assets/heart-3511.svg";
-                }
-            })
-            // li father
-            newLiElement.className = "comment";
-            newCommentElement.append(newImgElement, newCommentHeaderElement);
-            newLiElement.append(newCommentElement, newCommentSvgElement);
-            if (ulElement === null) {
-                return
-            }
-            ulElement.append(newLiElement);
-            (inputElement as HTMLInputElement).value = "";
+            addComment(ppURL, "tonytoscani", newMsg);
         }
     })
 }
 
+const createNewElement = (tag: string, className: string, innerText: string) => {
+    const newElement = document.createElement(tag);
+    newElement.className = className;
+    newElement.innerText = innerText;
+    return newElement;
+}
 
+const addComment = (profilePicture: string, userName: string, comment: string) => {
+    if (ulElement) {
+        // li father
+        const LIElement = createNewElement("li", "comment", "");
+        // profile pic
+        const imgElement = createNewElement("img", "profilePicture", "") as HTMLImageElement;
+        imgElement.src = profilePicture;
+        imgElement.alt = "profile Picture";
+        // comment 
+        const commentElement = createNewElement("div", "comonComment", "");
+        //comment Header
+        const commentHeaderElement = createNewElement("div", "commentHeader", "");
+        const commentHeaderAndContentElement = document.createElement("div");
+        const commentBodyElement = createNewElement("span", "", comment);
+        const commentHeaderBoldElement = createNewElement("b", "", `${userName} `);
+        commentHeaderAndContentElement.append(commentHeaderBoldElement, commentBodyElement);
+        commentHeaderElement.append(commentHeaderAndContentElement);
+        // extra info
+        const commentInfoElement = createNewElement("div", "commentInfo", "");
+        const hourAgoElement = createNewElement("div", "infoSubtitle", "10 h");
+        const likesInfoElement = createNewElement("b", "infoSubtitle", "like");;
+        const replayInfoElement = createNewElement("b", "infoSubtitle", "Reply");;
+        commentInfoElement.append(hourAgoElement, likesInfoElement, replayInfoElement);
+        commentHeaderElement.append(commentInfoElement)
+        // heart in the end
+        const commentSvgElement = createNewElement("img", "commentHeart", "") as HTMLImageElement;
+        commentSvgElement.src = "../public/assets/heart.svg"
+        commentSvgElement.alt = "heart";
+        commentSvgElement.addEventListener("click", () => {
+            likeCommentClicked(likesInfoElement, commentSvgElement)
+        })
+        // li father
+        commentElement.append(imgElement, commentHeaderElement);
+        LIElement.append(commentElement, commentSvgElement);
 
+        ulElement.append(LIElement);
+        (inputElement as HTMLInputElement).value = "";
+    }
+}
+
+const likeCommentClicked = (likesInfoElement: HTMLElement, commentSvgElement: HTMLImageElement) => {
+    if (likesInfoElement.innerText === "like") {
+        likesInfoElement.innerText = "1 like"
+        commentSvgElement.src = "../public/assets/redHeart.svg"
+    } else {
+        likesInfoElement.innerText = "like"
+        commentSvgElement.src = "../public/assets/heart.svg";
+    }
+}
