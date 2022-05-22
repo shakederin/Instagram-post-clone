@@ -4,9 +4,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/*************************************************/
-
-.likeConteiner {
+.likeContainer {
     height: 70%;
 }
 
@@ -71,12 +69,14 @@
 
 .inputArea {
     display: flex;
+    width: 100%;
     align-items: center;
     margin-left: 0.5em;
 }
 
 #commentInput {
     all: unset;
+    width: 90%;
     font-size: 1.17em;
     margin-left: 00.50em;
 }
