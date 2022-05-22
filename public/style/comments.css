@@ -1,0 +1,103 @@
+.ppHeaderBlock {
+    display: flex;
+    padding-left: 0.3em;
+    height: 4em;
+    align-items: center;
+}
+
+.commentsContainerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profilePicture {
+    height: 2em;
+    margin-left: 0.5em;
+    border-radius: 50%;
+    border: double 1em transparent;
+    background-image: linear-gradient(white, white),
+        linear-gradient(to right top, rgb(255, 175, 70), rgb(207, 83, 176));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border-width: 0.2em;
+}
+
+#commentsHeader {
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+#threeDots {
+    margin-right: 1em;
+    width: 2em;
+}
+
+#commentsBlock {
+    display: flex;
+    height: 30em;
+}
+
+#commentsList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0em;
+    margin: 1.5em 0em 0em 0em;
+    list-style-type: none;
+    overflow: scroll;
+}
+
+#commentsList::-webkit-scrollbar {
+    display: none;
+}
+
+#FirstComment {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 0.3em;
+}
+
+.comonComment {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 0.3em;
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    margin-bottom: 1.5em;
+}
+
+.commentHeader {
+    font-weight: 400;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentInfo {
+    display: flex;
+    margin-top: 1em;
+    color: rgb(0, 0, 0, 0.3);
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.infoSubtitle {
+    margin-right: 1em;
+}
+
+.commentHeart {
+    font-size: 0.55em;
+    margin-right: 1.7em;
+    width: 1.5em;
+    cursor: pointer;
+}
