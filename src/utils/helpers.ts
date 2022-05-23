@@ -19,7 +19,7 @@ export const likeCommentClicked = (
 ) => {
   if (likesInfoElement.innerText === "like") {
     likesInfoElement.innerText = "1 like";
-    commentSvgElement.src = "../public/assets/redHeart.svg";
+    commentSvgElement.src = "../public/assets/red-heart.svg";
   } else {
     likesInfoElement.innerText = "like";
     commentSvgElement.src = "../public/assets/heart.svg";
