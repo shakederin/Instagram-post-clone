@@ -1,6 +1,5 @@
 {
   "name": "instagram-post-clone",
-  "description": "",
   "version": "1.0.0",
   "scripts": {
     "test": "playwright test",
@@ -11,8 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/shakederin/Instagram-post-clone.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Shaked",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shakederin/Instagram-post-clone/issues"
