@@ -7,6 +7,6 @@ export const likeCommentClicked = (
     commentSvgElement.src = "../public/assets/red-heart.svg";
   } else {
     likesCount.innerText = "like";
-    commentSvgElement.src = "../public/assets/heart.svg";
+    commentSvgElement.src = "/assets/heart.svg";
   }
 };
