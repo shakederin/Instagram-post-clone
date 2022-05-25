@@ -1,4 +1,4 @@
-import { createComment } from "./create-comment";
+import { createComment } from "./create-comment.js";
 
 const profilePicture =
   "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";

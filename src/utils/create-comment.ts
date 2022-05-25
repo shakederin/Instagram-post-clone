@@ -3,17 +3,21 @@ import { likeComment } from "./helpers.js";
 
 const createCommentText = (userName: string, comment: string) => {
   const commentHeaderElement = createNewElement({
-    tag: "h4",
-    className: "commentHeader",
+    tag: "div",
+    className: "commentText",
   });
-  const commentHeaderAndContentElement = document.createElement("div");
+  const commentHeaderAndContentElement = createNewElement({
+    tag: "div",
+    className: "literalPart",
+  });
   const commentBodyElement = createNewElement({
     tag: "span",
     className: "commentContent",
     innerText: comment,
   });
   const commenterName = createNewElement({
-    tag: "b",
+    tag: "div",
+    className: "boldTxt",
     innerText: `${userName}`,
   });
   commentHeaderAndContentElement.append(commenterName, commentBodyElement);

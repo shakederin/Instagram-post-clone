@@ -1,3 +1,3 @@
-import { addEventListenerWhenPageLoaded } from "./utils/helpers";
+import { addEventListenerWhenPageLoaded } from "./utils/helpers.js";
 
 addEventListenerWhenPageLoaded();
