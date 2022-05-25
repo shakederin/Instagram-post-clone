@@ -1,105 +1,103 @@
 #replyArea {
-    height: 11em;
-    padding-top: 1em;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 11em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .likeContainer {
-    height: 70%;
+  height: 70%;
 }
 
 #icons {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5em;
 }
 
 #saveSVG {
-    width: 1.3em;
-    margin-right: 1.2em;
+  width: 1.3em;
+  margin-right: 1.2em;
 }
 
 #allLikes {
-    margin: 1em 0em 0em 0.5em;
-    display: flex;
-    flex-direction: column;
+  margin: 1em 0em 0em 0.5em;
+  display: flex;
+  flex-direction: column;
 }
 
 .likeFP {
-    width: 1.5em;
-    height: 1.5em;
-    border: 0em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0em;
 }
 
-#firstPP {
-    z-index: 1;
+#firstProfilePicture {
+  z-index: 1;
 }
 
-#secondPP {
-    margin-left: -0.5em;
+#secondProfilePicture {
+  margin-left: -0.5em;
 }
-
 
 .likeByWho {
-    display: flex;
+  display: flex;
 }
 
 #likedBy {
-    margin-left: 0.3em;
+  margin-left: 0.3em;
 }
 
 #hoursAgo {
-    font-size: 0.8em;
-    margin-left: 0.5em;
-    margin-top: 0.6em;
-    font-weight: 600;
-    color: #8e8e8e;
-    opacity: 0.7;
+  font-size: 0.8em;
+  margin-left: 0.5em;
+  margin-top: 0.6em;
+  font-weight: 600;
+  color: #8e8e8e;
+  opacity: 0.7;
 }
 
-
 #inputForm {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    height: 30%;
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 30%;
+  display: flex;
 }
 
 .inputArea {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-left: 0.5em;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-left: 0.5em;
 }
 
 #commentInput {
-    all: unset;
-    width: 90%;
-    font-size: 1.17em;
-    margin-left: 00.50em;
+  all: unset;
+  width: 90%;
+  font-size: 1.17em;
+  margin-left: 00.5em;
 }
 
 .svgImg {
-    width: 1.5em;
-    margin: 0 0.50em;
-    cursor: pointer;
+  width: 1.5em;
+  margin: 0 0.5em;
+  cursor: pointer;
 }
 
 #smileSVG {
-    font-size: 1.17em;
+  font-size: 1.17em;
 }
 
 #postComment {
-    all: unset;
-    margin-right: 1em;
-    font-weight: 600;
-    font-size: 1.17em;
-    padding: 0;
-    color: rgb(165, 212, 235);
-    cursor: pointer;
+  all: unset;
+  margin-right: 1em;
+  font-weight: 600;
+  font-size: 1.17em;
+  padding: 0;
+  color: rgb(165, 212, 235);
+  cursor: pointer;
 }
 
 #postComment:hover {
-    color: #3FA7DB;
+  color: #3fa7db;
 }
