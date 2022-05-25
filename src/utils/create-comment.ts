@@ -1,5 +1,5 @@
-import { createNewElement } from "./createElement.js";
-import { likeCommentClicked } from "./clickLike.js";
+import { createNewElement } from "./create-element.js";
+import { likeComment } from "./helpers.js";
 
 const createCommentText = (userName: string, comment: string) => {
   const commentHeaderElement = createNewElement({
@@ -51,10 +51,10 @@ const createCommentLike = (likesCount: HTMLElement) => {
     className: "commentHeart",
   });
   if (commentSvgElement instanceof HTMLImageElement) {
-    commentSvgElement.src = "../public/assets/heart.svg";
+    commentSvgElement.src = "./assets/heart.svg";
     commentSvgElement.alt = "heart";
     commentSvgElement.addEventListener("click", () => {
-      likeCommentClicked(likesCount, commentSvgElement);
+      likeComment(likesCount, commentSvgElement);
     });
   }
   return commentSvgElement;
