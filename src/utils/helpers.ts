@@ -1,3 +1,8 @@
+import { createComment } from "./create-comment";
+
+const profilePicture =
+  "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
+
 export const createNewElement = (
   tag: string,
   className: string,
@@ -13,7 +18,7 @@ export const createNewElement = (
   return newElement;
 };
 
-export const likeCommentClicked = (
+export const likeComment = (
   likesInfoElement: HTMLElement,
   commentSvgElement: HTMLImageElement
 ) => {
@@ -24,4 +29,27 @@ export const likeCommentClicked = (
     likesInfoElement.innerText = "like";
     commentSvgElement.src = "../public/assets/heart.svg";
   }
+};
+
+export const addEventListenerWhenPageLoaded = () => {
+  window.addEventListener("load", () => {
+    const inputElement = document.getElementById("commentInput");
+    const formElement = document.getElementById("inputForm");
+    const ulElement = document.getElementById("commentsList");
+    if (
+      formElement instanceof HTMLFormElement &&
+      inputElement instanceof HTMLInputElement
+    ) {
+      formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const newComment = inputElement.value;
+        if (newComment && ulElement) {
+          ulElement.append(
+            createComment(profilePicture, "tonytoscani", newComment)
+          );
+          formElement.reset();
+        }
+      });
+    }
+  });
 };
