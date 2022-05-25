@@ -1,6 +1,8 @@
 import { PlaywrightTestConfig, devices } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
+  testDir: ".",
+  testMatch: "**/*test.ts",
   use: {
     headless: false,
     launchOptions: {

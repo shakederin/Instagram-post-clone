@@ -2,12 +2,12 @@ import { test, expect } from "@playwright/test";
 import { runServer } from "./global-setup";
 
 test.describe("Instagram post clone", () => {
-  test.beforeAll(() => {
-    console.log(255);
+  // test.beforeAll(() => {
+  //   console.log(255);
 
-    console.log("set server");
-    runServer();
-  });
+  //   console.log("set server");
+  //   runServer();
+  // });
 
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:8080/");

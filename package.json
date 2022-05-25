@@ -4,8 +4,10 @@
   "scripts": {
     "build": "tsc",
     "pack": "webpack ./dist/index.js",
-    "start": "npm run build && npm run pack && node ./dist/server/index.js",
-    "test": "npm run start && playwright test"
+    "server": "node ./dist/server/index.js",
+    "start": "npm run build && npm run pack && npm run server",
+    "test": "npm run start && playwright test",
+    "testSolo": "playwright test"
   },
   "repository": {
     "type": "git",
