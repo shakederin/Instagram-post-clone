@@ -85,7 +85,7 @@
   justify-content: space-between;
 }
 
-.literalPart {
+.commentContentContainer {
   display: flex;
 }
 

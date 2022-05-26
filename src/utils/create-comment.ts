@@ -8,7 +8,7 @@ const createCommentText = (userName: string, comment: string) => {
   });
   const commentHeaderAndContentElement = createNewElement({
     tag: "div",
-    className: "literalPart",
+    className: "commentContentContainer",
   });
   const commentBodyElement = createNewElement({
     tag: "span",
@@ -17,7 +17,7 @@ const createCommentText = (userName: string, comment: string) => {
   });
   const commenterName = createNewElement({
     tag: "div",
-    className: "boldTxt",
+    className: "boldText",
     innerText: `${userName}`,
   });
   commentHeaderAndContentElement.append(commenterName, commentBodyElement);
@@ -49,7 +49,7 @@ const createCommentExraInfo = () => {
   return { commentInfoElement, likesCount };
 };
 
-const createCommentLike = (likesCount: HTMLElement) => {
+const createCommentLikeButton = (likesCount: HTMLElement) => {
   const commentSvgElement = createNewElement({
     tag: "img",
     className: "commentHeart",
@@ -84,7 +84,7 @@ export const createComment = (
   });
   const commentHeaderElement = createCommentText(userName, comment);
   const { commentInfoElement, likesCount } = createCommentExraInfo();
-  const commentLikeHeart = createCommentLike(likesCount);
+  const commentLikeHeart = createCommentLikeButton(likesCount);
   commentHeaderElement.append(commentInfoElement);
   commentElement.append(imgElement, commentHeaderElement);
   liElement.append(commentElement, commentLikeHeart);

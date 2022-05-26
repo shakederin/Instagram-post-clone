@@ -3,21 +3,6 @@ import { createComment } from "./create-comment.js";
 const profilePicture =
   "https://cdn.pixabay.com/photo/2021/05/20/11/58/beauty-6268460_1280.jpg";
 
-export const createNewElement = (
-  tag: string,
-  className: string,
-  innerText: string
-) => {
-  const newElement = document.createElement(tag);
-  if (className) {
-    newElement.className = className;
-  }
-  if (innerText) {
-    newElement.innerText = innerText;
-  }
-  return newElement;
-};
-
 export const likeComment = (
   likesInfoElement: HTMLElement,
   commentSvgElement: HTMLImageElement
