@@ -15,3 +15,7 @@ body {
 .commentsContainer {
   width: 35em;
 }
+
+.boldTxt {
+  font-weight: bold;
+}
