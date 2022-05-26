@@ -13,9 +13,7 @@ let server: Server;
 
 const runServer = () => {
   app.use(express.static(path.join(__dirname, "../../public")));
-  server = app.listen(port, () => {
-    console.log(`running on port ${port}`);
-  });
+  server = app.listen(port);
 };
 
 test.describe("Instagram post clone", () => {
