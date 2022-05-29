@@ -85,6 +85,14 @@
   justify-content: space-between;
 }
 
+.commentContentContainer {
+  display: flex;
+}
+
+.commentContent {
+  margin-left: 0.3em;
+}
+
 .commentInfo {
   display: flex;
   margin-top: 1em;

@@ -31,11 +31,12 @@
   border: 0em;
 }
 
-#firstProfilePicture {
-  z-index: 1;
+.UserLikeByPic {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-#secondProfilePicture {
+#otherUserLikeByPic {
   margin-left: -0.5em;
 }
 
@@ -43,7 +44,7 @@
   display: flex;
 }
 
-#likedBy {
+#likeContentContainer {
   margin-left: 0.3em;
 }
 

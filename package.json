@@ -1,6 +1,10 @@
 {
   "name": "instagram-post-clone",
   "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shakederin/Instagram-post-clone.git"
@@ -10,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/shakederin/Instagram-post-clone/issues"
   },
-  "homepage": "https://github.com/shakederin/Instagram-post-clone#readme"
+  "homepage": "https://github.com/shakederin/Instagram-post-clone#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
 }
