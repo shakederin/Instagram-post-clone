@@ -17,24 +17,28 @@ export const likeComment = (
 };
 
 export const addEventListenerWhenPageLoaded = () => {
-  window.addEventListener("load", () => {
-    const inputElement = document.getElementById("commentInput");
-    const formElement = document.getElementById("inputForm");
-    const ulElement = document.getElementById("commentsList");
-    if (
-      formElement instanceof HTMLFormElement &&
-      inputElement instanceof HTMLInputElement
-    ) {
-      formElement.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const newComment = inputElement.value;
-        if (newComment && ulElement) {
-          ulElement.append(
-            createComment(profilePicture, "tonytoscani", newComment)
-          );
-          formElement.reset();
-        }
-      });
-    }
-  });
+  window.addEventListener(
+    "load",
+    () => {
+      const inputElement = document.getElementById("commentInput");
+      const formElement = document.getElementById("inputForm");
+      const ulElement = document.getElementById("commentsList");
+      if (
+        formElement instanceof HTMLFormElement &&
+        inputElement instanceof HTMLInputElement
+      ) {
+        formElement.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const newComment = inputElement.value;
+          if (newComment && ulElement) {
+            ulElement.append(
+              createComment(profilePicture, "tonytoscani", newComment)
+            );
+            formElement.reset();
+          }
+        });
+      }
+    },
+    { once: true }
+  );
 };
