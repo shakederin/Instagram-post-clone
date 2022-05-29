@@ -69,10 +69,10 @@ const testAddComent = async (page: any, submitType: string) => {
     await page.locator("#postComment").click();
   }
   const countAfter = await commentsCount.count();
-  expect(countAfter - countBefore).toBe(1);
+  expect(countAfter - countBefore, "Didnt add new comment").toBe(1);
   const commentsInnerText = page.locator(".commentText > div > span").last();
   const newCommentText = await commentsInnerText.innerText();
-  expect(newCommentText).toBe(mockInput);
+  expect(newCommentText, "Didnt add the right comment input").toBe(mockInput);
   const inputFiled = await inputElement.innerText();
-  expect(inputFiled).toBe("");
+  expect(inputFiled, "Didnt cleared the input field").toBe("");
 };
