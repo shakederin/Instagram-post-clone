@@ -50,30 +50,29 @@ test.describe("Instagram post clone", () => {
   });
 
   test("Add comment with Enter", async ({ page }) => {
-    const commentsCountBefore = await page.locator(".comment").count();
-    const inputElement = page.locator("#commentInput");
-    await inputElement.type(mockInput);
-    await page.keyboard.press("Enter");
-    const commentsCountAfter = await page.locator(".comment").count();
-    expect(commentsCountAfter - commentsCountBefore).toBe(1);
-    const commentsInnerText = page
-      .locator(".commentText > .commentContentContainer > span")
-      .last();
-    const newCommentText = await commentsInnerText.innerText();
-    expect(newCommentText).toBe(mockInput);
+    await testAddComent(page, "Enter");
   });
 
   test('Add comment with "Post" button"', async ({ page }) => {
-    const commentsCountBefore = await page.locator(".comment").count();
-    const inputElement = page.locator("#commentInput");
-    await inputElement.type(mockInput);
-    await page.locator("#postComment").click();
-    const commentsCountAfter = await page.locator(".comment").count();
-    expect(commentsCountAfter - commentsCountBefore).toBe(1);
-    const commentsInnerText = page.locator(".commentText > div > span").last();
-    const newCommentText = await commentsInnerText.innerText();
-    expect(newCommentText).toBe(mockInput);
-    const inputFiled = await inputElement.innerText();
-    expect(inputFiled).toBe("");
+    await testAddComent(page, "click");
   });
 });
+
+const testAddComent = async (page: any, submitType: string) => {
+  const commentsCount = page.locator(".comment");
+  const countBefore = await commentsCount.count();
+  const inputElement = page.locator("#commentInput");
+  await inputElement.type(mockInput);
+  if (submitType === "Enter") {
+    await page.keyboard.press("Enter");
+  } else {
+    await page.locator("#postComment").click();
+  }
+  const countAfter = await commentsCount.count();
+  expect(countAfter - countBefore).toBe(1);
+  const commentsInnerText = page.locator(".commentText > div > span").last();
+  const newCommentText = await commentsInnerText.innerText();
+  expect(newCommentText).toBe(mockInput);
+  const inputFiled = await inputElement.innerText();
+  expect(inputFiled).toBe("");
+};
