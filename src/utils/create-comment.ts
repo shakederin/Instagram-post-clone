@@ -3,17 +3,21 @@ import { likeComment } from "./helpers.js";
 
 const createCommentText = (userName: string, comment: string) => {
   const commentHeaderElement = createNewElement({
-    tag: "h4",
-    className: "commentHeader",
+    tag: "div",
+    className: "commentText",
   });
-  const commentHeaderAndContentElement = document.createElement("div");
+  const commentHeaderAndContentElement = createNewElement({
+    tag: "div",
+    className: "commentContentContainer",
+  });
   const commentBodyElement = createNewElement({
     tag: "span",
     className: "commentContent",
     innerText: comment,
   });
   const commenterName = createNewElement({
-    tag: "b",
+    tag: "div",
+    className: "boldText",
     innerText: `${userName}`,
   });
   commentHeaderAndContentElement.append(commenterName, commentBodyElement);
@@ -45,7 +49,7 @@ const createCommentExraInfo = () => {
   return { commentInfoElement, likesCount };
 };
 
-const createCommentLike = (likesCount: HTMLElement) => {
+const createCommentLikeButton = (likesCount: HTMLElement) => {
   const commentSvgElement = createNewElement({
     tag: "img",
     className: "commentHeart",
@@ -80,7 +84,7 @@ export const createComment = (
   });
   const commentHeaderElement = createCommentText(userName, comment);
   const { commentInfoElement, likesCount } = createCommentExraInfo();
-  const commentLikeHeart = createCommentLike(likesCount);
+  const commentLikeHeart = createCommentLikeButton(likesCount);
   commentHeaderElement.append(commentInfoElement);
   commentElement.append(imgElement, commentHeaderElement);
   liElement.append(commentElement, commentLikeHeart);

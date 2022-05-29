@@ -1,17 +1,21 @@
 body {
-    margin: 0;
-    background-color: rgb(230, 230, 230);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  margin: 0;
+  background-color: rgb(230, 230, 230);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .mainContainer {
-    margin: auto;
-    margin-top: 5em;
-    background-color: white;
-    display: flex;
-    width: 85em;
+  margin: auto;
+  margin-top: 5em;
+  background-color: white;
+  display: flex;
+  width: 85em;
 }
 
 .commentsContainer {
-    width: 35em;
+  width: 35em;
+}
+
+.boldText {
+  font-weight: bold;
 }

@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
-    "pack": "webpack ./dist/index.js",
-    "server": "node ./dist/server/index.js",
-    "start": "npm run build && npm run pack && npm run server",
-    "test": "npm run start && playwright test",
-    "testSolo": "playwright test"
+    "pack": "webpack ./dist/src/index.js",
+    "start": "npm run build && npm run pack",
+    "test": "npm run start && playwright test"
   },
   "repository": {
     "type": "git",

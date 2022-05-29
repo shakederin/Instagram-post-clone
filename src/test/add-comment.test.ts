@@ -57,7 +57,7 @@ test.describe("Instagram post clone", () => {
     const commentsCountAfter = await page.locator(".comment").count();
     expect(commentsCountAfter - commentsCountBefore).toBe(1);
     const commentsInnerText = page
-      .locator(".commentHeader > div > span")
+      .locator(".commentText > .commentContentContainer > span")
       .last();
     const newCommentText = await commentsInnerText.innerText();
     expect(newCommentText).toBe(mockInput);
@@ -70,9 +70,7 @@ test.describe("Instagram post clone", () => {
     await page.locator("#postComment").click();
     const commentsCountAfter = await page.locator(".comment").count();
     expect(commentsCountAfter - commentsCountBefore).toBe(1);
-    const commentsInnerText = page
-      .locator(".commentHeader > div > span")
-      .last();
+    const commentsInnerText = page.locator(".commentText > div > span").last();
     const newCommentText = await commentsInnerText.innerText();
     expect(newCommentText).toBe(mockInput);
     const inputFiled = await inputElement.innerText();
