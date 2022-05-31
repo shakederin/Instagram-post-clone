@@ -1,78 +1,86 @@
 import { test, expect } from "@playwright/test";
-import express from "express";
-import { fileURLToPath } from "url";
-import path from "path";
-import { Server } from "http";
+import { InstagramCloneDriver } from "../test-kit/instagram-clone-driver.js";
+import { closeServer, runServer } from "../utils/server.js";
+let port: number;
 
-const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const port = 8080;
-const mockInput = "World";
-let server: Server;
-
-const runServer = () => {
-  app.use(express.static(path.join(__dirname, "../../public")));
-  server = app.listen(port);
-};
-
-test.describe("Instagram post clone", () => {
-  test.beforeAll(() => {
-    runServer();
+test.describe("Check for elements rendering", () => {
+  test.beforeAll(async () => {
+    port = await runServer();
   });
 
-  test.afterAll(async () => {
-    server.close();
+  test.afterAll(() => {
+    closeServer();
   });
 
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:8080/");
+    await page.goto(`http://localhost:${port}/`);
   });
-
-  test("Check for elements rendering", async ({ page }) => {
-    await expect(page, "incorrent URL").toHaveURL("http://localhost:8080/");
-    await expect(
-      page.locator("#commentsList"),
-      "UL element didnt rendered"
-    ).toBeVisible();
-    await expect(
-      page.locator("#inputForm"),
-      "the Form didnt rendered"
-    ).toBeVisible();
-    await expect(
-      page.locator("#commentInput"),
-      "the input field in form didnt rendered"
-    ).toBeVisible();
-    await expect(
-      page.locator("#postComment"),
-      "the buttom in form didnt rendered"
-    ).toBeVisible();
+  test("Check if UL element render", async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    expect(await instagramDriver.isCommentListRendered()).toBe(true);
   });
-
-  test("Add comment with Enter", async ({ page }) => {
-    await testAddComent(page, "Enter");
+  test("Check if Form element render", async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    expect(await instagramDriver.isFormRendered()).toBe(true);
   });
-
-  test('Add comment with "Post" button"', async ({ page }) => {
-    await testAddComent(page, "click");
+  test("Check if input element render", async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    expect(await instagramDriver.isInputRendered()).toBe(true);
+  });
+  test("Check if post comment Button element render", async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    expect(await instagramDriver.isPostCommentBtnRendered()).toBe(true);
   });
 });
 
-const testAddComent = async (page: any, submitType: string) => {
-  const commentsCount = page.locator(".comment");
-  const countBefore = await commentsCount.count();
-  const inputElement = page.locator("#commentInput");
-  await inputElement.type(mockInput);
-  if (submitType === "Enter") {
-    await page.keyboard.press("Enter");
-  } else {
-    await page.locator("#postComment").click();
-  }
-  const countAfter = await commentsCount.count();
-  expect(countAfter - countBefore, "Didnt add new comment").toBe(1);
-  const commentsInnerText = page.locator(".commentText > div > span").last();
-  const newCommentText = await commentsInnerText.innerText();
-  expect(newCommentText, "Didnt add the right comment input").toBe(mockInput);
-  const inputFiled = await inputElement.innerText();
-  expect(inputFiled, "Didnt cleared the input field").toBe("");
-};
+test.describe("Add comment to the post", async () => {
+  const mockInput = "World";
+  test.beforeAll(async () => {
+    port = await runServer();
+  });
+
+  test.afterAll(async () => {
+    await closeServer();
+  });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto(`http://localhost:${port}/`);
+  });
+
+  test("Add comment with Enter", async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    const commentCountBeforePosting = await instagramDriver.getCommentsCount();
+    await instagramDriver.postComment(mockInput);
+    const commentCountAfterPosting = await instagramDriver.getCommentsCount();
+    expect(commentCountAfterPosting - commentCountBeforePosting).toBe(1);
+  });
+
+  test('Add comment with "Post-button"', async ({ page }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    const commentCountBeforePosting = await instagramDriver.getCommentsCount();
+    await instagramDriver.typeInput(mockInput);
+    await instagramDriver.clickPostComment();
+    const commentCountAfterPosting = await instagramDriver.getCommentsCount();
+    expect(commentCountAfterPosting - commentCountBeforePosting).toBe(1);
+  });
+
+  test('Countlnd add comment with "Post-button" when input field is empty', async ({
+    page,
+  }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    const commentCountBeforePosting = await instagramDriver.getCommentsCount();
+    await instagramDriver.clickPostComment();
+    const commentCountAfterPosting = await instagramDriver.getCommentsCount();
+    expect(commentCountAfterPosting - commentCountBeforePosting).toBe(0);
+  });
+
+  test('Countlnd add comment with "Enter" when input field is empty', async ({
+    page,
+  }) => {
+    const instagramDriver = new InstagramCloneDriver(page);
+    const commentCountBeforePosting = await instagramDriver.getCommentsCount();
+    await instagramDriver.postComment("");
+    const commentCountAfterPosting = await instagramDriver.getCommentsCount();
+    expect(commentCountAfterPosting - commentCountBeforePosting).toBe(0);
+  });
+});
