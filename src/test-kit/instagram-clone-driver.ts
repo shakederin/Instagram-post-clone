@@ -39,7 +39,12 @@ export class InstagramCloneDriver {
   };
 
   isInputRendered = async () => {
-    return await this.inputLocator.isVisible();
+    try {
+      await this.inputLocator.waitFor({ state: "attached", timeout: 2000 });
+      return true;
+    } catch (_error) {
+      return false;
+    }
   };
 
   isPostCommentBtnRendered = async () => {
