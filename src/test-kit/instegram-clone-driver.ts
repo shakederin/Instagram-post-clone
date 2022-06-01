@@ -17,40 +17,40 @@ export class InstagramCloneDriver {
     this.commentsLocator = page.locator(".comment");
   }
 
-  postComment = async (input: string) => {
+  async postComment(input: string) {
     await this.typeInput(input);
     await this.page.keyboard.press("Enter");
-  };
+  }
 
-  typeInput = async (input: string) => {
+  async typeInput(input: string) {
     await this.inputLocator.type(input);
-  };
+  }
 
-  clickPostComment = async () => {
+  async clickPostComment() {
     await this.postCommentLocator.click();
-  };
+  }
 
-  getComments = () => {
+  getComments() {
     return this.commentsLocator;
-  };
+  }
 
-  getCommentsCount = async () => {
+  async getCommentsCount() {
     return await this.commentsLocator.count();
-  };
+  }
 
-  isInputRendered = async () => {
+  async isInputRendered() {
     return await this.inputLocator.isVisible();
-  };
+  }
 
-  isPostCommentBtnRendered = async () => {
+  async isPostCommentBtnRendered() {
     return await this.postCommentLocator.isVisible();
-  };
+  }
 
-  isCommentListRendered = async () => {
+  async isCommentListRendered() {
     return await this.commentListLocator.isVisible();
-  };
+  }
 
-  isFormRendered = async () => {
+  async isFormRendered() {
     return await this.formLocator.isVisible();
-  };
+  }
 }
