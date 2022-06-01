@@ -1,7 +1,7 @@
 import express from "express";
 import { fileURLToPath } from "url";
 import path from "path";
-import { Server } from "http";
+import type { Server } from "http";
 import net from "net";
 
 const app = express();
