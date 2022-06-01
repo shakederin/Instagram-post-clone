@@ -1,12 +1,12 @@
-// import { Locator, Page } from "@playwright/test";
+import type { Locator, Page } from "@playwright/test";
 
 export class InstagramCloneDriver {
-  private page: any;
-  private inputLocator: any;
-  private postCommentLocator: any;
-  private commentsLocator: any;
-  private commentListLocator: any;
-  private formLocator: any;
+  private page: Page;
+  private inputLocator: Locator;
+  private postCommentLocator: Locator;
+  private commentsLocator: Locator;
+  private commentListLocator: Locator;
+  private formLocator: Locator;
 
   constructor(page: any) {
     this.page = page;
@@ -22,40 +22,44 @@ export class InstagramCloneDriver {
     await this.page.keyboard.press("Enter");
   };
 
-  typeInput = async (input: string) => {
+  async typeInput(input: string) {
     await this.inputLocator.type(input);
-  };
+  }
 
-  clickPostComment = async () => {
+  async clickPostComment() {
     await this.postCommentLocator.click();
-  };
+  }
 
-  getComments = () => {
+  getComments() {
     return this.commentsLocator;
-  };
+  }
 
-  getCommentsCount = async () => {
+  async getCommentsCount() {
     return await this.commentsLocator.count();
-  };
+  }
 
-  isInputRendered = async () => {
+  async isElementRender(element: Locator) {
     try {
-      await this.inputLocator.waitFor({ state: "attached", timeout: 2000 });
+      await element.waitFor({ state: "attached", timeout: 2000 });
       return true;
     } catch (_error) {
       return false;
     }
-  };
+  }
 
-  isPostCommentBtnRendered = async () => {
-    return await this.postCommentLocator.isVisible();
-  };
+  async isInputRendered() {
+    return await this.isElementRender(this.inputLocator);
+  }
 
-  isCommentListRendered = async () => {
-    return await this.commentListLocator.isVisible();
-  };
+  async isPostCommentBtnRendered() {
+    return await this.isElementRender(this.postCommentLocator);
+  }
 
-  isFormRendered = async () => {
-    return await this.formLocator.isVisible();
-  };
+  async isCommentListRendered() {
+    return await this.isElementRender(this.commentListLocator);
+  }
+
+  async isFormRendered() {
+    return await this.isElementRender(this.formLocator);
+  }
 }
