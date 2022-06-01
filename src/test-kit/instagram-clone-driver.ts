@@ -8,7 +8,7 @@ export class InstagramCloneDriver {
   private commentListLocator: Locator;
   private formLocator: Locator;
 
-  constructor(page: any) {
+  constructor(page: Page) {
     this.page = page;
     this.inputLocator = page.locator("#commentInput");
     this.postCommentLocator = page.locator("#postComment");
