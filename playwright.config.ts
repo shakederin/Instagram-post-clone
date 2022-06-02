@@ -4,7 +4,6 @@ const config = {
   testDir: "dist/test",
   testMatch: "**/*test.js",
   use: {
-    headless: false,
     trace: "on-first-retry",
   },
   projects: [
