@@ -1,10 +1,10 @@
 import { devices } from "@playwright/test";
 
 const config = {
-  testDir: ".",
-  testMatch: "**/*test.ts",
+  testDir: "dist/test",
+  testMatch: "**/*test.js",
   use: {
-    headles: false,
+    headless: false,
     trace: "on-first-retry",
   },
   projects: [

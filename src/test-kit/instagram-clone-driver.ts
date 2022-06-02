@@ -1,4 +1,11 @@
 import type { Locator, Page } from "@playwright/test";
+import {
+  COMMENTLIST,
+  COMMENTS,
+  FORM,
+  INPUT,
+  POSTCOMMENT,
+} from "./constants.js";
 
 export class InstagramCloneDriver {
   private page: Page;
@@ -10,11 +17,11 @@ export class InstagramCloneDriver {
 
   constructor(page: Page) {
     this.page = page;
-    this.inputLocator = page.locator("#commentInput");
-    this.postCommentLocator = page.locator("#postComment");
-    this.commentListLocator = page.locator("#commentsList");
-    this.formLocator = page.locator("#inputForm");
-    this.commentsLocator = page.locator(".comment");
+    this.inputLocator = page.locator(INPUT);
+    this.postCommentLocator = page.locator(POSTCOMMENT);
+    this.commentListLocator = page.locator(COMMENTLIST);
+    this.formLocator = page.locator(FORM);
+    this.commentsLocator = page.locator(COMMENTS);
   }
 
   postComment = async (input: string) => {

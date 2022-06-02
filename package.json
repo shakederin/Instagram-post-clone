@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
-    "pack": "webpack ./dist/src/index.js",
+    "pack": "webpack ./dist/index.js",
     "pretest": "npm run build && npm run pack",
     "test": "playwright test",
     "watch": "tsc -w"

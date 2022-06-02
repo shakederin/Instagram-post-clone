@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { InstagramCloneDriver } from "../test-kit/instagram-clone-driver.js";
 import { closeServer, runServer } from "../utils/server.js";
+import { MOCKINPUT } from "../test-kit/constants.js";
 let port: number;
 
 test.describe("Check for elements rendering", () => {
@@ -17,24 +18,36 @@ test.describe("Check for elements rendering", () => {
   });
   test("Check if UL element render", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
-    expect(await instagramDriver.isCommentListRendered()).toBe(true);
+    expect(
+      await instagramDriver.isCommentListRendered(),
+      "<ul> element not rendered"
+    ).toBe(true);
   });
   test("Check if Form element render", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
-    expect(await instagramDriver.isFormRendered()).toBe(true);
+    expect(
+      await instagramDriver.isFormRendered(),
+      "<Form> element not rendered"
+    ).toBe(true);
   });
   test("Check if input element render", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
-    expect(await instagramDriver.isInputRendered()).toBe(true);
+    expect(
+      await instagramDriver.isInputRendered(),
+      "<Input> element not rendered"
+    ).toBe(true);
   });
   test("Check if post comment Button element render", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
-    expect(await instagramDriver.isPostCommentBtnRendered()).toBe(true);
+    expect(
+      await instagramDriver.isPostCommentBtnRendered(),
+      "<Button> element not rendered"
+    ).toBe(true);
   });
 });
 
 test.describe("Add comment to the post", async () => {
-  const mockInput = "World";
+  const mockInput = MOCKINPUT;
   test.beforeAll(async () => {
     port = await runServer();
   });
