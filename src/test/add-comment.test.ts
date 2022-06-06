@@ -1,12 +1,18 @@
 import { test, expect } from "@playwright/test";
+import { Server } from "http";
 import { InstagramCloneDriver } from "../test-kit/instagram-clone-driver.js";
-import { closeServer, runServer } from "../utils/server.js";
-import { MOCKINPUT } from "../test-kit/constants.js";
+import { runServer } from "../utils/server.js";
+
 let port: number;
+let closeServer:
+  | ((callback?: ((err?: Error | undefined) => void) | undefined) => Server)
+  | (() => void);
 
 test.describe("Check for elements rendering", () => {
   test.beforeAll(async () => {
-    port = await runServer();
+    const { freePort, closeServerFunction } = await runServer();
+    port = freePort;
+    closeServer = closeServerFunction;
   });
 
   test.afterAll(() => {
@@ -47,15 +53,16 @@ test.describe("Check for elements rendering", () => {
 });
 
 test.describe("Add comment to the post", async () => {
-  const mockInput = MOCKINPUT;
+  const mockInput = "World";
   test.beforeAll(async () => {
-    port = await runServer();
+    const { freePort, closeServerFunction } = await runServer();
+    port = freePort;
+    closeServer = closeServerFunction;
   });
 
-  test.afterAll(async () => {
-    await closeServer();
+  test.afterAll(() => {
+    closeServer();
   });
-
   test.beforeEach(async ({ page }) => {
     await page.goto(`http://localhost:${port}/`);
   });
@@ -87,7 +94,7 @@ test.describe("Add comment to the post", async () => {
     expect(commentCountAfterPosting - commentCountBeforePosting).toBe(0);
   });
 
-  test('Countlnd add comment with "Enter" when input field is empty', async ({
+  test('Couldnt add comment with "Enter" when input field is empty', async ({
     page,
   }) => {
     const instagramDriver = new InstagramCloneDriver(page);

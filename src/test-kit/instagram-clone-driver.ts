@@ -5,7 +5,7 @@ import {
   FORM,
   INPUT,
   POSTCOMMENT,
-} from "./constants.js";
+} from "./selectors.js";
 
 export class InstagramCloneDriver {
   private page: Page;
@@ -24,10 +24,10 @@ export class InstagramCloneDriver {
     this.commentsLocator = page.locator(COMMENTS);
   }
 
-  postComment = async (input: string) => {
+  async postComment(input: string) {
     await this.typeInput(input);
     await this.page.keyboard.press("Enter");
-  };
+  }
 
   async typeInput(input: string) {
     await this.inputLocator.type(input);

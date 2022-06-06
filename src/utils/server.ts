@@ -11,13 +11,10 @@ let server: Server;
 
 export const runServer = async () => {
   app.use(express.static(path.join(__dirname, "../../public")));
-  const port = await findPort();
-  server = app.listen(port);
-  return port;
-};
-
-export const closeServer = () => {
-  server.close();
+  const freePort = await findPort();
+  server = app.listen(freePort);
+  const closeServerFunction = () => server.close();
+  return { freePort, closeServerFunction };
 };
 
 async function findPort() {
