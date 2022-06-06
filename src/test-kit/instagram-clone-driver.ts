@@ -1,25 +1,25 @@
 import type { Locator, Page } from "@playwright/test";
 import {
-  COMMENTLIST,
+  COMMENT_LIST,
   COMMENTS,
   FORM,
-  INPUT,
-  POSTCOMMENT,
+  COMMENT_INPUT,
+  POST_COMMENT_BUTTON,
 } from "./selectors.js";
 
 export class InstagramCloneDriver {
   private page: Page;
-  private inputLocator: Locator;
-  private postCommentLocator: Locator;
+  private commentInputLocator: Locator;
+  private postCommentButtonLocator: Locator;
   private commentsLocator: Locator;
   private commentListLocator: Locator;
   private formLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.inputLocator = page.locator(INPUT);
-    this.postCommentLocator = page.locator(POSTCOMMENT);
-    this.commentListLocator = page.locator(COMMENTLIST);
+    this.commentInputLocator = page.locator(COMMENT_INPUT);
+    this.postCommentButtonLocator = page.locator(POST_COMMENT_BUTTON);
+    this.commentListLocator = page.locator(COMMENT_LIST);
     this.formLocator = page.locator(FORM);
     this.commentsLocator = page.locator(COMMENTS);
   }
@@ -30,11 +30,11 @@ export class InstagramCloneDriver {
   }
 
   async typeInput(input: string) {
-    await this.inputLocator.type(input);
+    await this.commentInputLocator.type(input);
   }
 
   async clickPostComment() {
-    await this.postCommentLocator.click();
+    await this.postCommentButtonLocator.click();
   }
 
   getComments() {
@@ -55,11 +55,11 @@ export class InstagramCloneDriver {
   }
 
   async isInputRendered() {
-    return await this.isElementRender(this.inputLocator);
+    return await this.isElementRender(this.commentInputLocator);
   }
 
   async isPostCommentBtnRendered() {
-    return await this.isElementRender(this.postCommentLocator);
+    return await this.isElementRender(this.postCommentButtonLocator);
   }
 
   async isCommentListRendered() {
