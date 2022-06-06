@@ -22,28 +22,28 @@ test.describe("Check for elements rendering", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(`http://localhost:${port}/`);
   });
-  test("Check if UL element render", async ({ page }) => {
+  test("Check if UL element rendered", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
     expect(
       await instagramDriver.isCommentListRendered(),
       "<ul> element not rendered"
     ).toBe(true);
   });
-  test("Check if Form element render", async ({ page }) => {
+  test("Check if Form element rendered", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
     expect(
       await instagramDriver.isFormRendered(),
       "<Form> element not rendered"
     ).toBe(true);
   });
-  test("Check if input element render", async ({ page }) => {
+  test("Check if input element rendered", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
     expect(
       await instagramDriver.isInputRendered(),
       "<Input> element not rendered"
     ).toBe(true);
   });
-  test("Check if post comment Button element render", async ({ page }) => {
+  test("Check if post comment Button element rendered", async ({ page }) => {
     const instagramDriver = new InstagramCloneDriver(page);
     expect(
       await instagramDriver.isPostCommentBtnRendered(),

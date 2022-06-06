@@ -45,7 +45,7 @@ export class InstagramCloneDriver {
     return await this.commentsLocator.count();
   }
 
-  async isElementRender(element: Locator) {
+  async isElementRendered(element: Locator) {
     try {
       await element.waitFor({ state: "attached", timeout: 2000 });
       return true;
@@ -55,18 +55,18 @@ export class InstagramCloneDriver {
   }
 
   async isInputRendered() {
-    return await this.isElementRender(this.commentInputLocator);
+    return await this.isElementRendered(this.commentInputLocator);
   }
 
   async isPostCommentBtnRendered() {
-    return await this.isElementRender(this.postCommentButtonLocator);
+    return await this.isElementRendered(this.postCommentButtonLocator);
   }
 
   async isCommentListRendered() {
-    return await this.isElementRender(this.commentListLocator);
+    return await this.isElementRendered(this.commentListLocator);
   }
 
   async isFormRendered() {
-    return await this.isElementRender(this.formLocator);
+    return await this.isElementRendered(this.formLocator);
   }
 }
