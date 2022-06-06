@@ -29,20 +29,20 @@ export class InstagramCloneDriver {
     await this.page.keyboard.press("Enter");
   }
 
-  async typeInput(input: string) {
-    await this.commentInputLocator.type(input);
+  typeInput(input: string) {
+    return this.commentInputLocator.type(input);
   }
 
-  async clickPostComment() {
-    await this.postCommentButtonLocator.click();
+  clickPostComment() {
+    return this.postCommentButtonLocator.click();
   }
 
   getComments() {
     return this.commentsLocator;
   }
 
-  async getCommentsCount() {
-    return await this.commentsLocator.count();
+  getCommentsCount() {
+    return this.commentsLocator.count();
   }
 
   async isElementRendered(element: Locator) {
@@ -54,19 +54,19 @@ export class InstagramCloneDriver {
     }
   }
 
-  async isInputRendered() {
-    return await this.isElementRendered(this.commentInputLocator);
+  isInputRendered() {
+    return this.isElementRendered(this.commentInputLocator);
   }
 
-  async isPostCommentBtnRendered() {
-    return await this.isElementRendered(this.postCommentButtonLocator);
+  isPostCommentBtnRendered() {
+    return this.isElementRendered(this.postCommentButtonLocator);
   }
 
-  async isCommentListRendered() {
-    return await this.isElementRendered(this.commentListLocator);
+  isCommentListRendered() {
+    return this.isElementRendered(this.commentListLocator);
   }
 
-  async isFormRendered() {
-    return await this.isElementRendered(this.formLocator);
+  isFormRendered() {
+    return this.isElementRendered(this.formLocator);
   }
 }
