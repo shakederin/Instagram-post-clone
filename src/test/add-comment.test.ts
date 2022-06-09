@@ -5,8 +5,7 @@ import { runServer } from "../utils/server.js";
 
 let port: number;
 let closeServer:
-  | ((callback?: ((err?: Error | undefined) => void) | undefined) => Server)
-  | (() => void);
+   ((callback?: ((err?: Error | undefined) => void) | undefined) => Server)
 
 test.describe("Check for elements rendering", () => {
   test.beforeAll(async () => {
