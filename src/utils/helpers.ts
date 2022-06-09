@@ -9,10 +9,10 @@ export const likeComment = (
 ) => {
   if (likesInfoElement.innerText === "like") {
     likesInfoElement.innerText = "1 like";
-    commentSvgElement.src = "../public/assets/red-heart.svg";
+    commentSvgElement.src = "./assets/red-heart.svg";
   } else {
     likesInfoElement.innerText = "like";
-    commentSvgElement.src = "../public/assets/heart.svg";
+    commentSvgElement.src = "./assets/heart.svg";
   }
 };
 

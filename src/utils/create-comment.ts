@@ -55,7 +55,7 @@ const createCommentLikeButton = (likesCount: HTMLElement) => {
     className: "commentHeart",
   });
   if (commentSvgElement instanceof HTMLImageElement) {
-    commentSvgElement.src = "../public/assets/heart.svg";
+    commentSvgElement.src = "./assets/heart.svg";
     commentSvgElement.alt = "heart";
     commentSvgElement.addEventListener("click", () => {
       likeComment(likesCount, commentSvgElement);
